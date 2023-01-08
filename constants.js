@@ -4,5 +4,5 @@ export const GOOGLE_CLIENT_ID =
 
 export const PUBLIC_URL =
   process.env.PUBLIC_URL || process.env.NODE_ENV === "production"
-    ? "https://vote.stuysu.org"
+    ? "https://voyager-voting.vercel.app"
     : "https://localhost:3000";
