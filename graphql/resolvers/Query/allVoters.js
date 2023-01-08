@@ -4,8 +4,8 @@ import User from "../../../models/user";
 
 export default async (
   _,
-  { election: { id, url, user } },
-  { authenticationRequired }
+  { election: { id, url } },
+  { authenticationRequired, user }
 ) => {
   authenticationRequired();
 
@@ -31,7 +31,7 @@ export default async (
     throw new UserInputError("There's no election with that url or id");
   }
 
-  if (!election.completed && !user.adminPrivileges) {
+  if (!election.completed && !user?.adminPrivileges) {
     throw new ForbiddenError(
       "You are not allowed to view the votes at this time"
     );
